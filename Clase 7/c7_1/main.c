@@ -1,0 +1,85 @@
+#include "I:\Archivos\PIC\Clase 7\c7_1\main.h"
+
+
+#define LCD_TYPE 2
+#include <lcd.c>
+#define re 50
+
+int s,e;
+int h=0xFF;
+
+
+void main()
+{
+   lcd_init();
+   setup_adc_ports(NO_ANALOGS|VSS_VDD);
+   setup_adc(ADC_CLOCK_DIV_2);
+   setup_psp(PSP_DISABLED);
+   setup_spi(SPI_SS_DISABLED);
+   setup_wdt(WDT_OFF);
+   setup_timer_0(RTCC_INTERNAL);
+   setup_timer_1(T1_DISABLED);
+   setup_timer_2(T2_DISABLED,0,1);
+   setup_timer_3(T3_DISABLED|T3_DIV_BY_1);
+   setup_comparator(NC_NC_NC_NC);
+   setup_vref(FALSE);
+   setup_oscillator(OSC_8MHZ|OSC_INTRC|OSC_31250|OSC_PLL_OFF);
+
+   // TODO: USER CODE!!
+
+   set_tris_b(0xF0);
+   set_tris_d(0x00);
+   set_tris_a(0x00);
+   
+   while(1){
+      
+      output_high(PIN_A1);//Inicia un ciclo
+         
+      output_b(0xFF);//Salidas encendidas, estado de reposo del Teclado
+      
+      if(input(PIN_B4)||input(PIN_B5)||input(PIN_B6)){//Revisar si alguna de las columnas esta encendida
+         output_b(0x00); //Apagar todas las salidas
+         delay_ms(re);
+         for(s=0x01; s<=0x02; s*=2){ //Se recorren todas las salidas
+            output_b(s); //Se enciende cada salida
+            delay_ms(re); //Esperamos un momento antes de leer las entradas
+            for(e=0x10; e<=0x40; e*=2){ //Se recorren todas las entradas
+               if(input(e)); //Si alguna entrada esta encendida
+                  {
+                     h=e+s; //Se obtiene un numero hexadecimal que nos indica la posicion del boton que se presiono
+                  }
+            delay_ms(re);
+            }
+         }
+      }
+      
+      lcd_gotoxy(5,1);
+      switch(h){ //Se evalua el numero hexadecimal y se imprime una letra en la pantalla deacuerdo a cada uno
+         case(0x11):
+            printf(lcd_putc,"\fa");
+            break;
+         case(0x21):
+            printf(lcd_putc,"\fb");
+            break;
+         case (0x41):
+            printf(lcd_putc,"\fc");
+            break;
+         case(0x12):
+            printf(lcd_putc,"\fd");
+            break;
+         case(0x22):
+            printf(lcd_putc,"\fe");
+            break;
+         case (0x42):
+            printf(lcd_putc,"\ff");
+            break;
+      }
+         delay_ms(100);
+      
+      
+      output_low(PIN_A1);//Termina un ciclo      
+   }
+   
+   
+   
+}

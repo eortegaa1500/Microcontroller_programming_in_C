@@ -1,0 +1,114 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016     lcd_init.i
+016     MAIN.@SCRATCH1
+016     @PSTRINGC_94.@SCRATCH1
+017     lcd_init.@SCRATCH1
+017     @PSTRINGC_94.@SCRATCH2
+018     lcd_putc.c
+019     lcd_gotoxy.x
+019     @delay_ms1.P1
+01A     lcd_gotoxy.y
+01B     lcd_gotoxy.address
+01C     lcd_gotoxy.@SCRATCH1
+01D     lcd_send_byte.address
+01E     lcd_send_byte.n
+01F     lcd_read_byte.low
+01F     lcd_send_byte.@SCRATCH1
+020     lcd_send_nibble.n
+020     lcd_read_byte.high
+021     lcd_read_byte.@SCRATCH1
+F83     lcd
+F83     PSP_DATA
+F8C     lcdlat
+F95     lcdtris
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P1
+FE9-FEA @WRITE_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+00C8  @delay_ms1
+00B4  EXT_isr
+0096  LCD_INIT_STRING
+0114  lcd_read_byte
+0108  lcd_read_nibble
+00EE  lcd_send_nibble
+0152  lcd_send_byte
+0186  lcd_init
+01E6  lcd_gotoxy
+0208  lcd_putc
+026C  MAIN
+00BA  @const102
+024C  @PSTRINGC_94
+00C0  @const105
+026C  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    I:\Archivos\PIC\Clase5\lcd1_2\
+
+Project Files:
+    main.c
+    main.h
+    C:\Program Files (x86)\PICC\devices\18F4550.h
+    C:\Program Files (x86)\PICC\drivers\lcd.c
+
+Units:
+    I:\Archivos\PIC\Clase5\lcd1_2\main (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX32:      main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.PJT
+    Call Tree:   main.tre
+    Statistics:  main.sta

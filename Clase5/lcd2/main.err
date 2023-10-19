@@ -1,0 +1,10 @@
+>>> Warning 203 "main.c" Line 38(1,1): Condition always TRUE
+*** Error 12 "main.c" Line 39(18,19): Undefined identifier   m
+*** Error 12 "main.c" Line 41(16,18): Undefined identifier   re
+*** Error 12 "main.c" Line 43(7,8): Undefined identifier   m
+*** Error 12 "main.c" Line 44(7,8): Undefined identifier   i
+*** Error 12 "main.c" Line 46(10,11): Undefined identifier   m
+*** Error 12 "main.c" Line 47(10,11): Undefined identifier   x
+*** Error 12 "main.c" Line 49(10,11): Undefined identifier   i
+*** Error 12 "main.c" Line 50(10,11): Undefined identifier   y
+      8 Errors,  1 Warnings.

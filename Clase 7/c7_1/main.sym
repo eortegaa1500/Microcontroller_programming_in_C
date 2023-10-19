@@ -1,0 +1,100 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     s
+005     e
+006     h
+007     @WRITEBITA.P1
+007     lcd_putc.c
+007     @READBITA.P1
+007     lcd_init.i
+008     @delay_ms1.P1
+008     @WRITEBITA.P2
+008     lcd_gotoxy.x
+008-009 @READBITA.P1
+008     lcd_init.@SCRATCH1
+009     lcd_gotoxy.y
+009-00A @WRITEBITA.P1
+00A     lcd_gotoxy.address
+00B     lcd_gotoxy.@SCRATCH1
+00C     lcd_send_byte.address
+00D     lcd_send_byte.n
+00E     lcd_read_byte.low
+00E     lcd_send_byte.@SCRATCH1
+00F     lcd_send_nibble.n
+00F     lcd_read_byte.high
+010     lcd_read_byte.@SCRATCH1
+F83     PSP_DATA
+F83     lcd
+F8C     lcdlat
+F95     lcdtris
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P3
+FE9-FEA @READ_PROGRAM_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0018  @delay_ms1
+0004  LCD_INIT_STRING
+0064  lcd_read_byte
+0058  lcd_read_nibble
+003E  lcd_send_nibble
+00A2  lcd_send_byte
+00D6  lcd_init
+01A6  lcd_gotoxy
+01C8  lcd_putc
+020C  MAIN
+0136  @WRITEBITA
+0176  @READBITA
+020C  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    I:\Archivos\PIC\Clase 7\c7_1\
+
+Project Files:
+    main.c
+    main.h
+    C:\Program Files (x86)\PICC\devices\18F4550.h
+    C:\Program Files (x86)\PICC\drivers\lcd.c
+
+Units:
+    I:\Archivos\PIC\Clase 7\c7_1\main (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    ICD Provisions: Yes
+
+Output Files:
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX32:      main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.PJT
+    Call Tree:   main.tre
+    Statistics:  main.sta

@@ -1,0 +1,70 @@
+#include "I:\Archivos\PIC\Clase 6\c61\main.h"
+
+
+#define LCD_TYPE 2
+#include <lcd.c>
+void main()
+{
+   float r,v;
+   lcd_init();
+   
+   float x;
+
+    #device adc=10
+
+  setup_adc_ports(an0);//Selecciona el puerto a realizar la conversion
+  
+  setup_adc(adc_clock_internal);//Selecciona el reloj de conversion
+  set_adc_channel(0);//Selecciona el canal de conversion
+
+
+   setup_adc_ports(AN0|VSS_VDD);
+   setup_adc(ADC_CLOCK_DIV_2);
+   setup_psp(PSP_DISABLED);
+   setup_spi(SPI_SS_DISABLED);
+   setup_wdt(WDT_OFF);
+   setup_timer_0(RTCC_INTERNAL);
+   setup_timer_1(T1_DISABLED);
+   setup_timer_2(T2_DISABLED,0,1);
+   setup_timer_3(T3_DISABLED|T3_DIV_BY_1);
+   setup_comparator(NC_NC_NC_NC);
+   setup_vref(FALSE);
+   setup_oscillator(OSC_8MHZ|OSC_INTRC|OSC_31250|OSC_PLL_OFF);
+   
+    lcd_gotoxy(5,1);
+    printf(lcd_putc, "Distancias");
+
+    delay_ms(700);          
+   
+   while(1)
+   {
+      lcd_gotoxy(5,1); 
+      printf(lcd_putc,"\f"); 
+      lcd_gotoxy(5,2);
+      printf(lcd_putc,"\f"); 
+      
+      r=read_adc();//Conversion A/D la almacena en r en un binario de 0-1024
+      v=(r/1024)*5;//Convierte de binario a voltaje
+      
+      x=(0.3156*v*v*v)-(1.9452*v*v)+(3.6005*v)+(0.5478); //Voltaje a Distancia
+      
+      lcd_gotoxy(5,1);//Posiciona el cursor en la posicion 1,1 de la pantalla lcd
+      printf(lcd_putc,"Voltaje = %.2f V", v);//Imprime
+      //printf(lcd_putc,"Discreto = %f ", r);//Imprime
+      
+      lcd_gotoxy(5,2); //Posicionarse en 5,1
+      printf(lcd_putc,"D = %.1f cm", x); //Imprime
+   
+      output_high(PIN_B0);
+      delay_ms(700);
+           
+      output_low(PIN_B0);
+      delay_ms(700);
+           
+      delay_ms(50);//Demora
+
+   }
+   
+   // TODO: USER CODE!!
+
+}
