@@ -1,0 +1,24 @@
+for (num=0x02;num<=0x08;num*=2){
+         output_b(num);
+         delay_ms(700);
+      }
+
+
+      output_high(PIN_B1); //Verde 1 Prende
+      output_high(PIN_B6); //Rojo 2 Prende
+      delay_ms(retardo);
+      output_low(PIN_B1); //Verde 1 se apaga
+      
+      output_high(PIN_B2); //Amarillo 1 prende
+      delay_ms(retardo);
+      output_low(PIN_B2); //Amarillo 1 apaga
+      output_low(PIN_B6); //Rojo 2 apaga
+      
+      output_high(PIN_B3); //Rojo 1 prende
+      output_high(PIN_B4); //Verde 2 prende
+      delay_ms(retardo);
+      output_low(PIN_B4);  //Verde 2 apaga
+      
+      output_high(PIN_B5); //Amarillo 1 prende
+      delay_ms(retardo);
+      output_low(PIN_B5); //Amarillo 2 apaga

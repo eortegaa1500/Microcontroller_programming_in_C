@@ -1,0 +1,10 @@
+#include "E:\Archivos\PIC\P1_Hola_Mundo\main.h"
+
+
+void main()
+{
+   setup_oscillator(OSC_8MHZ|OSC_INTRC|OSC_31250|OSC_PLL_OFF);
+
+   // TODO: USER CODE!!
+
+}

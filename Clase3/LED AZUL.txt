@@ -1,0 +1,48 @@
+//Verde
+   
+   output_high(PIN_B1);
+   delay_ms(retardo);
+   output_low(PIN_B1);
+   delay_ms(parpadeo);
+   
+   //Parpadeo
+   
+   output_high(PIN_B1);
+   delay_ms(parpadeo);
+   output_low(PIN_B1);
+   delay_ms(parpadeo);
+   output_high(PIN_B1);
+   delay_ms(parpadeo);
+   output_low(PIN_B1);
+   delay_ms(parpadeo);
+   output_high(PIN_B1);
+   delay_ms(parpadeo);
+   output_low(PIN_B1);
+   delay_ms(parpadeo);
+   
+   //Amarillo
+   
+   output_high(PIN_B2);
+   delay_ms(retardo);
+   output_low(PIN_B2);
+   
+   //Rojo
+   
+   output_high(PIN_B3);
+   delay_ms(retardo);
+   output_low(PIN_B3);
+
+//Parpadeo LED AZUL
+
+output_high(PIN_B4);//Se enciende el LED AZUL
+   delay_ms(700);
+   output_low(PIN_B4);
+   delay_ms(700);
+   output_high(PIN_B4);//Se enciende el LED AZUL
+   delay_ms(700);
+   output_low(PIN_B4);
+   delay_ms(700);
+   output_high(PIN_B4);//Se enciende el LED AZUL
+   delay_ms(700);
+   output_low(PIN_B4);
+   delay_ms(700);

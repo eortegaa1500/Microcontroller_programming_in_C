@@ -1,0 +1,20 @@
+#include "F:\Archivos\PIC\Clase1\P2_1\main.h"
+#define retardo 500
+
+
+void main()
+{
+
+   setup_oscillator(OSC_8MHZ|OSC_INTRC|OSC_31250|OSC_PLL_OFF);
+
+   // TODO: USER CODE!!
+
+   set_tris_b(0x00);
+   
+   while(1){
+      output_high(PIN_B0); //Verde 1 Prende
+      delay_ms(retardo);
+      output_low(PIN_B0); //Verde 1 se apaga
+      delay_ms(retardo);
+      }
+}
